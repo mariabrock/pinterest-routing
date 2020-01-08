@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './Home.scss';
 
 import boardData from '../../../helpers/data/boardData';
@@ -28,7 +27,6 @@ class Home extends React.Component {
   }
 
   render() {
-
     return (
             <div className="Home">
                 <h1>Home Page</h1>
