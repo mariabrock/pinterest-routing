@@ -1,5 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Switch,
+} from 'react-router-dom';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import firebaseConnection from '../helpers/data/connection';
@@ -9,7 +14,7 @@ import './App.scss';
 import MyNavbar from '../Components/shared/MyNavbar/MyNavbar';
 import Auth from '../Components/pages/Auth/Auth';
 import Home from '../Components/pages/Home/Home';
-import NewBoard from '../Components/pages/NewBoard/NewBoard';
+import BoardForm from '../Components/pages/BoardForm/BoardForm';
 import SingleBoard from '../Components/pages/SingleBoard/SingleBoard';
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
@@ -51,7 +56,7 @@ class App extends React.Component {
           <MyNavbar authed={authed} />
           <Switch>
             <PrivateRoute path="/" exact component={Home} authed={authed} />
-            <PrivateRoute path="/board/new" exact component={NewBoard} authed={authed} />
+            <PrivateRoute path="/board/new" exact component={BoardForm} authed={authed} />
             <PublicRoute path="/auth" exact component={Auth} authed={authed} />
             <PrivateRoute path="/board/:boardId" exact component={SingleBoard} authed={authed} />
           </Switch>
