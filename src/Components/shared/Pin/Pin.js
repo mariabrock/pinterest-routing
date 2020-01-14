@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 import pinShape from '../../../helpers/propz/pinShape';
 import './Pin.scss';
@@ -20,11 +21,12 @@ render() {
   const { pin } = this.props;
   return (
         <div className="Pin col-3">
-        <div class="card">
+        <div className="card">
         <img src={pin.imageUrl} className="card-img-top" alt="" />
-            <div class="card-body">
-                <h5 class="card-title">{pin.title}</h5>
+            <div className="card-body">
+                <h5 className="card-title">{pin.title}</h5>
                 <button className ="btn btn-danger" onClick={this.deletePinEvent}>X</button>
+                <Link className="btn btn-warning" to={`/board/${pin.boardId}/pin/${pin.id}/edit`}>Edit</Link>
             </div>
         </div>
     </div>
